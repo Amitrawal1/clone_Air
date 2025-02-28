@@ -13,7 +13,7 @@ router.post("/signup", async(req, res)=>{
         const newUser = new User({email, username});
         const registeredUser = await User.register(newUser, password);
         console.log(registeredUser);
-        req.flash("succes", "Welcome to Airbnb");
+        req.flash("success", "Welcome to Airbnb");
         res.redirect("/listings");
     } catch {
         req.flash("error", e.message);
@@ -27,7 +27,7 @@ router.get("/login", (req,res)=>{
 
 router.post("/login", passport.authenticate("local", {failureRedirect:"/login", failurFlash:true,}),
  async(req,res)=>{
-    req.flash("succes","Welcome to wonderlust, You are logged in!")
+    req.flash("success","Welcome to wonderlust, You are logged in!")
     res.redirect("/listings");
 
 })
