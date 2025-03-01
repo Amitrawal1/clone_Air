@@ -9,13 +9,12 @@ const {validateReview, isLoggedIn, isReviewAuthor} = require("../middleware.js")
 const reviewController = require("../controllers/reviews.js");
 
 //Reviews
-//Post route
+//Create route
 router.post("/",isLoggedIn, validateReview, wrapAsync(reviewController.createReview));
 
 
 
-router.delete(
-    "/:reviewId", isLoggedIn, isReviewAuthor, wrapAsync(reviewController.destroyReview));
+router.delete("/:reviewId", isLoggedIn, isReviewAuthor, wrapAsync(reviewController.destroyReview));
 
 
 module.exports = router;
