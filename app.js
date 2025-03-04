@@ -11,7 +11,6 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
-
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
@@ -47,8 +46,10 @@ app.get("/",(req,res)=>{
     res.send("Hii i am root");
 });
 
+
 app.use(session(sessionOptions));  
 app.use(flash());
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -82,5 +83,6 @@ app.use((err,req,res,next)=>{
 })
 
 app.listen(8080, ()=>{
-    console.log("server is listening to port 8080");
+    console.log("server is listening  port 8080");
+    console.log("hey");
 });
