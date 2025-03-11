@@ -19,6 +19,7 @@
     "express-joi-validation": "^6.0.0",
     "express-session": "^1.18.1",
     "joi": "^17.0.0",
+    "mapbox-gl": "^3.10.0",
     "method": "^2.0.0",
     "method-override": "^3.0.0",
     "mongoose": "^8.10.0",
