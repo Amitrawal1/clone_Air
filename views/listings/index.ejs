@@ -1,23 +1,141 @@
 
 <% layout("/layouts/boilerplate") %>
-    <h2>All listings</h2>
-    <!-- <form method="get" action="/listings/new" >
-        <button>Creat new listing</button>
-    </form> -->
-   
-        <div class="row row-cols-lg-3 row row-cols-md-2 row row-cols-sm-1">
-            <% for(let listing of allListings){ %>
-                <a href="/listings/<%= listing.id %>" class="listing-link">
-                <div class="card col">
-                    <img  src="<%= listing.image.url %>" class="card-img-top" alt="listing_image">
-                    <div class="card-img-overlay"></div>
-                    <div class="card-body">
-                      <p class="card-text"><%= listing.title %>  </p>
-                    </div>
-                  </div>
-                </a>
-                  <% } %>
+
+<style>
+
+ .filters-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    width: 70%;
+    padding: 10px;
+  }
+
+  #filters {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .filter {
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    color: gray;
+  }
+
+  .filter:hover {
+    color: black;
+  }
+
+  .filter p{
+    font-size: 0.8rem;
+    }
+
+  .scroll-btn {
+    background: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+  .filter_control{
+    display: flex;
+    width:100%;
+  }
+  #text-info{
+    
+  }
+</style>
+<div class="filter_control">
+  <div class="filters-container">
+    <button id="left-btn" class="scroll-btn">‹</button>
+    <div id="filters">
+      <div class="filter">
+        <div><i class="fa-solid fa-fire"></i></div>
+        <p>Trending</p>
+      </div>
+      <div class="filter">
+        <div ><i class="fa-solid fa-bed"></i></div>
+        <p>Rooms</p>
+      </div>
+        <div class="filter">
+          <div><i class="fa-solid fa-mountain-city"></i></div>
+          <p>Iconic Cities</p>
         </div>
+        <div class="filter">
+          <div><i class="fa-solid fa-mountain"></i></div>
+          <p>Mountain</p>
+        </div>
+        <div class="filter">
+          <div><i class="fa-solid fa-umbrella-beach"></i></div>
+          <p>Beach</p>
+        </div>
+        <div class="filter">
+          <div><i class="fa-solid fa-binoculars"></i></div>
+          <p>Amazing View</p>
+        </div>
+        <div class="filter">
+          <div><i class="fa-solid fa-mug-hot"></i></div>
+          <p>Bed and Breakfasts</p>
+        </div>
+        <div class="filter">
+          <div><i class="fa-solid fa-water-ladder"></i></div>
+          <p>amazing Pools</p>
+        </div>
+        <div class="filter">
+          <div><i class="fa-solid fa-van-shuttle"></i></div>
+          <p>Camper vans</p>
+        </div>
+        <div class="filter">
+          <div><i class="fa-solid fa-campground"></i></div>
+          <p>Camping</p>
+        </div>
+        <div class="filter">
+          <div><i class="fa-solid fa-golf-ball-tee"></i></div>
+          <p>Golf</p>
+        </div>
+        <div class="filter">
+          <div><i class="fa-solid fa-water"></i></div>
+          <p>Lake</p>
+        </div>
+        <div class="filter">
+          <div><i class="fa-solid fa-snowflake"></i></div>
+          <p>Arctic</p>
+        </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-person-swimming"></i></div>
+        <p>Swimming pools</p>
+      </div>
+    </div>
+    <button id="right-btn" class="scroll-btn">›</button>
+  </div>
+  
+</div>
+
+
+   
+<div class="row row-cols-lg-3 row row-cols-md-2 row row-cols-sm-1">
+  <% for(let listing of allListings){ %>
+    <a href="/listings/<%= listing.id %>" class="listing-link">
+      <div class="card col">
+        <img  src="<%= listing.image.url %>" class="card-img-top" alt="listing_image">
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text"><%= listing.title %>  </p> 
+          &#8377; <%= listing.price.toLocaleString("en-IN") %> /night
+          <i id="tax-info" > &nbsp; &nbsp; +18% GST</i>
+        </div>
+      </div>
+    </a>
+  <% } %>
+</div>
+
 
 
 
